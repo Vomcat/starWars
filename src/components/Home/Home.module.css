@@ -1,0 +1,12 @@
+.inputGroup {
+  position: relative;
+  display: flex;
+}
+
+.error {
+  position: absolute;
+  left: 20px;
+  bottom: -24px;
+  font-size: 11px;
+  color: red;
+}

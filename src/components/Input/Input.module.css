@@ -1,0 +1,21 @@
+.input {
+  width: 100%;
+  height: 50px;
+  outline: none;
+  border: none;
+  padding-left: 20px;
+  border-radius: 8px;
+  background: #ffffff;
+  transition: 0.3s;
+  color: #000000;
+
+  &::placeholder {
+    color: inherit;
+    opacity: 0.3;
+  }
+
+  &:focus {
+    border-color: dodgerBlue;
+    box-shadow: 0 0 8px 0 dodgerBlue;
+  }
+}
