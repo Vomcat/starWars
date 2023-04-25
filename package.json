@@ -1,7 +1,7 @@
 {
   "name": "starwars",
   "private": true,
-  "homepage": "https://vomcat.github.io/starWars/",
+  "homepage": "https://vomcat.github.io/starWars",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
