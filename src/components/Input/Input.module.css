@@ -8,14 +8,14 @@
   background: #ffffff;
   transition: 0.3s;
   color: #000000;
+}
 
-  &::placeholder {
-    color: inherit;
-    opacity: 0.3;
-  }
+.input::placeholder {
+  color: inherit;
+  opacity: 0.3;
+}
 
-  &:focus {
-    border-color: dodgerBlue;
-    box-shadow: 0 0 8px 0 dodgerBlue;
-  }
+.input:focus {
+  border-color: dodgerBlue;
+  box-shadow: 0 0 8px 0 dodgerBlue;
 }

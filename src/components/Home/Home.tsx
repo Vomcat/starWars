@@ -12,8 +12,8 @@ interface requestsCollection {
 }
 
 const Home = () => {
-  const [filmsEndpoints, setFilmsEndpoints] = useState<object[]>([]);
-  const [items, setItems] = useState<string[]>([]);
+  const [filmsEndpoints, setFilmsEndpoints] = useState<any[]>([]);
+  const [films, setFilms] = useState<object[]>([]);
   const [error, setError] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false)
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -29,21 +29,20 @@ const Home = () => {
   const requestAndSetHandler = async (collection: requestsCollection) => {
     const { urls, setter } = collection;
     setLoading(true)
-    const allData : string[] = await Promise.all(
-      urls.map((itemUrl: string) => requestHandler(itemUrl))
+    const allData : object[] = await Promise.all(
+      urls.map((itemUrl) => requestHandler(itemUrl))
     );
+
     setLoading(false)
     setter(allData);
   };
 
   useEffect(() => {
     if (filmsEndpoints.length > 0) {
-      console.log(typeof filmsEndpoints)
-      const data: any= filmsEndpoints.filter(
-        (item: any) => item.results.length > 0
+      const data: any[] = filmsEndpoints.filter(
+        (item) => item.results.length > 0
       );
-      console.log(typeof data, data)
-      data.length > 0 ? requestAndSetHandler({ urls: data[0].results[0].films, setter: setItems }) : setError("Bad request");
+      data.length > 0 ? requestAndSetHandler({ urls: data[0].results[0].films, setter: setFilms }) : setError("Bad request");
     }
   }, [filmsEndpoints]);
 
@@ -75,7 +74,7 @@ const Home = () => {
         </div>
       </form>
       {loading && <p>Loading...</p>}
-      {items.length > 0 && items.map((item: any) => <div key={item.episode_id}><p className={styles.header}>Title: {item.title} Date: {item.release_date}</p><p>{item.opening_crawl}</p></div>)}
+      {films.length > 0 && films.map((item: any) => <div key={item.episode_id}><p className={styles.title}>Title: {item.title} Date: {item.release_date}</p><p>{item.opening_crawl}</p></div>)}
     </div>
   );
 };

@@ -1,12 +1,23 @@
+.container {
+  max-width: 1440px;
+  margin-inline: auto;
+  padding: 50px;
+}
+
 .inputGroup {
   position: relative;
   display: flex;
+  margin-bottom: 30px;
 }
 
 .error {
   position: absolute;
-  left: 20px;
+  left: 0;
   bottom: -24px;
   font-size: 11px;
   color: red;
+}
+
+.title {
+  font-weight: 700;
 }
